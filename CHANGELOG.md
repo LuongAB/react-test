@@ -1,5 +1,11 @@
 # @primer/components
 
+## 35.4.1
+
+### Patch Changes
+
+- [#2150](https://github.com/primer/react/pull/2150) [`63a2de51`](https://github.com/primer/react/commit/63a2de51c0d7de0d2640cc80435b1cead071f1f6) Thanks [@dgreif](https://github.com/dgreif)! - Ensure all files in `lib-esm` are in fact esm and not CommonJS
+
 ## 35.4.0
 
 ### Minor Changes
