@@ -9,16 +9,20 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    versioning-strategy: increase
     labels:
-      - "dependencies"
-      - "skip changeset"
+      - 'dependencies'
+      - 'skip changeset'
+    groups:
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - 'storybook'
 
-  - package-ecosystem: 'npm'
-    directory: '/docs'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
       interval: 'weekly'
-    allow:
-      - dependency-name: '@primer/gatsby-theme-doctocat'
     labels:
-      - "dependencies"
-      - "skip changeset"
+      - 'dependencies'
+      - 'skip changeset'
