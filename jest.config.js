@@ -1,13 +1,13 @@
 /* eslint-disable github/unescaped-html-literal */
-module.exports = {
-  testEnvironment: 'jsdom',
-  cacheDirectory: '.test',
-  collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/stories/**', '!**/*.stories.{js,jsx,ts,tsx}'],
-  setupFilesAfterEnv: [
-    '<rootDir>/src/utils/test-matchers.tsx',
-    '<rootDir>/src/utils/test-deprecations.tsx',
-    '<rootDir>/src/utils/test-helpers.tsx'
-  ],
-  testMatch: ['<rootDir>/(src|codemods)/**/*.test.[jt]s?(x)', '!**/*.types.test.[jt]s?(x)']
+
+'use strict'
+
+/**
+ * @type {import('jest').Config}
+ */
+const config = {
+  projects: ['<rootDir>/packages/react', '<rootDir>/packages/postcss-preset-primer'],
+  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 }
+
+module.exports = config
