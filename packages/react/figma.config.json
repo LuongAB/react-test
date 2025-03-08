@@ -1,0 +1,13 @@
+{
+  "codeConnect": {
+    "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/GCvY3Qv8czRgZgvl1dG6lp/Primer-Web",
+    "parser": "react",
+    "importPaths": {
+      "src/*": "@primer/react",
+      "src/experimental/*": "@primer/react/experimental",
+      "src/deprecated/*": "@primer/react/deprecated"
+    },
+    "include": ["src/**/*.figma.tsx", "src/**/*.tsx"],
+    "exclude": ["test/**", "docs/**", "build/**"]
+  }
+}

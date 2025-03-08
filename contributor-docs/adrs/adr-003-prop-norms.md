@@ -1,8 +1,11 @@
-# ADR 003: Prop norms in Primer React Components
+# Prop norms in Primer React Components
 
 ## Status
 
-Adopted
+| Stage    | Status |
+| -------- | ------ |
+| Approved | ✅     |
+| Adopted  | ✅     |
 
 ## Context
 
