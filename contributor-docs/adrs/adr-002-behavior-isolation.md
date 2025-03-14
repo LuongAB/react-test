@@ -1,8 +1,12 @@
-# ADR 2: Isolating behaviors through custom clements and vanilla JavaScript
+# Isolating behaviors through custom clements and vanilla JavaScript
 
 ## Status
 
-Approved 2021-02-04
+| Stage         | Status                                     |
+| ------------- | ------------------------------------------ |
+| Approved      | ✅                                         |
+| Adopted       | ✅                                         |
+| Superseded by | [ADR 010](./adr-010-behavior-isolation.md) |
 
 ## Related documents
 
@@ -104,5 +108,7 @@ Some behaviors can be implemented as vanilla JavaScript without introducing addi
 In general, _portions of behaviors_ that affect or rely on **user interactions and events**, **shared state**, or **CSS styles** should be kept in React Hooks. Parts of the behavior that can be implemented in isolation of these concepts should be built with no dependency on React or other libraries.
 
 [^1]: https://codesandbox.io/s/demo-styling-custom-element-g973d?file=/src/index.tsx
+
 [^2]: https://github.com/github/details-dialog-element/blob/main/src/index.ts#L195
+
 [^3]: https://github.com/github/details-dialog-element#details-dialog-close

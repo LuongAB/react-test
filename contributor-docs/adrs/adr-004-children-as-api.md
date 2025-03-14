@@ -1,8 +1,11 @@
-# ADR 004: Strict props or Composite components
+# Strict props or Composite components
 
 ## Status
 
-Approved 2022-05-10
+| Stage    | Status |
+| -------- | ------ |
+| Approved | ✅     |
+| Adopted  | 🚧     |
 
 <br/>
 
@@ -12,7 +15,6 @@ _Note: Consumer is used multiple times on this page. It refers to the developers
 
 ## Decision:
 
-
 1. Prefer using children for “content”
 
 2. For composite components, the API should be decided by how much customisation is available for children.
@@ -20,7 +22,9 @@ _Note: Consumer is used multiple times on this page. It refers to the developers
 For components that have design decisions baked in, should use strict props. For example, the color of the icon inside a Button component is decided by the `variant` prop on the Button. The API does not allow for changing that.
 
 ```jsx
-<Button variant="danger" leadingIcon={TrashIcon}>Delete branch</Button>
+<Button variant="danger" leadingIcon={TrashIcon}>
+  Delete branch
+</Button>
 ```
 
 On the other hand, if we want consumers to have more control over children, a composite API is the better choice.
@@ -38,7 +42,7 @@ On the other hand, if we want consumers to have more control over children, a co
 
 With React, `children` is the out-of-the-box way for putting [phrasing content](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#phrasing_content) inside your component. By using `children` instead of our own custom prop, we can make the API “predictable” for its consumers.
 
-<img width="373" alt="image" src="https://user-images.githubusercontent.com/1863771/144945223-70c4c800-5827-4985-9f18-0ab416eba058.png">
+<img width="373" alt="image" src="https://user-images.githubusercontent.com/1863771/144945223-70c4c800-5827-4985-9f18-0ab416eba058.png"> <!-- markdownlint-disable-line no-default-alt-text -->
 
 ```jsx
 // prefer this
@@ -62,7 +66,7 @@ import {CheckIcon} from '@primer/octicons-react'
 render(
   <Flash variant="success">
     <CheckIcon /> Changes saved!
-  </Flash>
+  </Flash>,
 )
 ```
 
@@ -148,8 +152,6 @@ When intentionally going off the happy path, developers can still drop down an a
 <br/>
 
 _Sidenote: We might want to name this prop `leadingIcon`, even if there is no `trailingIcon`. Consistent names across components plays a big role in making the API predictable._
-
-
 
 ---
 
@@ -241,6 +243,7 @@ We use this pattern as well in `Button`, `Button.Counter` is a restricted versio
 <Button variant="primary">
   Upvote <Button.Counter>1</Button.Counter>
 </Button>
+```
 
 <br/>
 
@@ -257,8 +260,7 @@ For Example, [legacy ActionMenu](https://primer.style/react/deprecated/ActionMen
 <img width="337" alt="image 10" src="https://user-images.githubusercontent.com/1863771/144945221-b6a4e7f0-5134-4485-bfd0-1e4b2e77a70e.png">
 
 ```jsx
-<ActionMenu overlayProps={{width: 'medium'}} anchorContent="Open column menu">
-</ActionMenu>
+<ActionMenu overlayProps={{width: 'medium'}} anchorContent="Open column menu"></ActionMenu>
 ```
 
 <br/>
@@ -371,15 +373,13 @@ Prefer using children for “content”
 <Button label="Watch" variant="primary"/>
 ```
 
-
 <img width="227" alt="image 13" src="https://user-images.githubusercontent.com/1863771/145045542-0d80491b-75e1-4304-b9fe-8c2cca80b298.png">
-
 
 The Icon should adapt to variant and size of the `Button`. We could use a `EyeIcon` in children here:
 
 ```jsx
 <Button>
-  <EyeIcon/> Watch
+  <EyeIcon /> Watch
 </Button>
 ```
 
@@ -393,9 +393,7 @@ But, we want to discourage customising the Icon’s color and size in the applic
 <Button leadingIcon={<EyeIcon/>}>Watch</Button>
 ```
 
-
 <img width="293" alt="image 14" src="https://user-images.githubusercontent.com/1863771/145045544-1a1651f1-fbcf-4022-8e9b-b37558bb2466.png">
-
 
 We want to add a `Counter` that adapts to the variant without supporting all the props of a `CounterLabel` like `scheme`.
 

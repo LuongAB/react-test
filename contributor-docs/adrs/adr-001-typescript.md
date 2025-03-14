@@ -1,8 +1,11 @@
-# ADR 1: TypeScript
+# TypeScript
 
 ## Status
 
-Approved 2021-01-15
+| Stage    | Status |
+| -------- | ------ |
+| Approved | ✅     |
+| Adopted  | ✅     |
 
 ## Context
 
